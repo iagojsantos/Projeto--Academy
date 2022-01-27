@@ -1,7 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from app.company.models import Company
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 
 

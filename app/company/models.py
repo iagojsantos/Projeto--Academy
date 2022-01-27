@@ -1,9 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
 from app.accounts.managers import UserManager
 
 
-class Company(AbstractBaseUser):
+class Company(models.Model):
     #managers = models.ManyToManyField(AbstractBaseUser, related_name='Gerente', blank = True)
     name = models.CharField (max_length=255, verbose_name= 'Nome', unique=True, error_messages= {"unique": "Nome já cadastrado."})
     cnpj = models.CharField (max_length=18, verbose_name= 'CNPJ', unique= True, error_messages={"unique": 'CNPJ já cadastrado!'})
