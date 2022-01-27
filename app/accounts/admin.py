@@ -33,7 +33,7 @@ class AdminAdmin(UserAdmin):
 class AdminCustomer(UserAdmin):
     """Admin"""
 
-    list_display = ("id", "email", "name", "phone")
+    list_display = ("id", "email", "name","cpf", "phone")
     list_filter = ["is_active"]
     search_fields = ("email",)
     ordering = ("email",)
@@ -54,3 +54,4 @@ class AdminCustomer(UserAdmin):
             },
         ),
     )
+

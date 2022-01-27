@@ -1,4 +1,5 @@
 import email
+from enum import unique
 from msilib import add_tables
 from tabnanny import verbose
 from unicodedata import name
@@ -7,11 +8,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from app.common import choices
 from app.accounts.managers import UserManager
+from cpf_field.models import CPFField
 
 
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255, verbose_name= "Nome")
     email = models.EmailField(max_length=255, verbose_name= "Email", unique=True, error_messages= {"unique": "Email já cadastrado."})
+    cpf = CPFField (max_length=21, verbose_name='CPF',  unique=True, error_messages= {"unique": "CPF já cadastrado"})
     phone = models.CharField(max_length=21, verbose_name= "Telefone", blank=True, null=True)
     is_staff = models.BooleanField(default=False, help_text= "Designates whether the user can log into this admin site.", verbose_name="Acesso ao DashBoard")
     is_active =models.BooleanField (default=True, help_text="Designates whether this user should be treated as active. Unselect this instead of deleting accounts", verbose_name="Ativar Cadastro")
@@ -54,5 +57,4 @@ class Customer(User):
         self.is_superuser = False
         self.type = 1
         return super().save(*args, **kwargs)
-
 

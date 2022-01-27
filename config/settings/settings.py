@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.accounts.apps.AccountsConfig',
     'app.common.apps.CommonConfig',
+    'app.company.apps.CompanyConfig',
+    'cpf_field',
 ]
 
 MIDDLEWARE = [
