@@ -39,7 +39,7 @@ class AdminCustomer(UserAdmin):
     ordering = ("email",)
     
     fieldsets = (
-        (None, {"fields": ("email", "name", "password", "phone")}),
+        (None, {"fields": ("email", "name", "password", "phone", "cpf")}),
         (
             ("Permissions"),
             {"fields": ("is_active", "is_staff")},
